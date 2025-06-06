@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocked IPs</title>
+</head>
+<body>
+    <h1>Blocked IPs</h1>
+    <ul>
+        {{range .blockedIPs}}
+        <li>{{.}}</li>
+        {{end}}
+    </ul>
+    <form action="/admin/unblock-ip" method="POST">
+        <label for="ip">IP to Unblock:</label>
+        <input type="text" id="ip" name="ip" placeholder="Enter IP address">
+        <button type="submit">Unblock</button>
+    </form>
+</body>
+</html>

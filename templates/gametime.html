@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Russian Roulette - Game Time</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>{{if .didUserWin}}{{.winMessage}}{{end}}</h1>
+    <p>Chamber Left: {{.userRoll}}</p>
+    <p>Times Won: {{.timesWon}}</p>
+    <p>Money Earned: ${{.moneyEarned}}</p>
+    <p>Chance to Die: {{.chanceToDie}}</p>
+
+        <!-- "Next Round" button always shown -->
+    <form action="/gametime" method="GET">
+        <button type="submit">Next Round</button>
+    </form>
+
+        <!-- Show "New Game" button only if the user won -->
+    {{if .didUserWin}}
+        <form action="/gametime" method="GET">
+            <button type="submit">New Game</button>
+        </form>
+    {{end}}
+
+        <!-- "Cashout" button always shown -->
+    <form action="/cashout" method="GET">
+        <button type="submit">Cashout</button>
+    </form>
+</body>
+</html>
