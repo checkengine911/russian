@@ -68,7 +68,7 @@ func adminBlockedIPHandler(c *gin.Context) {
 	// Get multiple IP representations
     userIP := c.ClientIP()
 
-    // Check if the user's IP is in the admin IP list
+    // Check if the user's IP is in the admin IP listt
     if !adminIPs[userIP] {
         c.String(403, fmt.Sprintf("Access denied. Your IP (%s) is not authorized.", userIP))
         return
